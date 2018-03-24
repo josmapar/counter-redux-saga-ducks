@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-
+import { counterIncrementAction, counterDecrementAction } from './duck';
 import CounterComponent from './CounterComponent';
 
 class CounterContainer extends Component {
@@ -12,11 +12,11 @@ class CounterContainer extends Component {
   }
 
   handleIncrement() {
-    
+    this.props.dispatch(counterIncrementAction());
   }
 
   handleDecrement() {
-
+    this.props.dispatch(counterDecrementAction());
   }
 
   render() {
@@ -35,12 +35,9 @@ class CounterContainer extends Component {
 }
 
 CounterContainer.propTypes = {
-  counter: PropTypes.number
+  counter: PropTypes.number,
+  dispatch: PropTypes.func.isRequired
 };
-
-// const mapStateToProps = ({ counter }) => ({
-//   counter
-// });
 
 const mapStateToProps = ({ counter }) => ({
    counter: counter.counter //modulo.estado
