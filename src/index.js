@@ -4,8 +4,7 @@ import { createStore, applyMiddleware } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { Provider } from 'react-redux';
 import App from './app/App';
-import rootReducer from './reducers';
-import rootSaga from './sagas';
+import { rootReducer, rootSaga } from './root';
 
 const sagaMiddleware = createSagaMiddleware();
 const store = {

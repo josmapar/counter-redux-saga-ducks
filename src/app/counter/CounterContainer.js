@@ -20,12 +20,13 @@ class CounterContainer extends Component {
   }
 
   render() {
-    const { counter } = this.props;
+    const { counter, isLoading } = this.props;
     return (
       <div>
         <h1>Counter Redux</h1>
         <CounterComponent  
           counter={counter}
+          isLoading={isLoading}
           onHandleIncrement={this.handleIncrement}
           onHandleDecrement={this.handleDecrement}
         />
@@ -36,11 +37,13 @@ class CounterContainer extends Component {
 
 CounterContainer.propTypes = {
   counter: PropTypes.number,
+  isLoading: PropTypes.bool,
   dispatch: PropTypes.func.isRequired
 };
 
 const mapStateToProps = ({ counter }) => ({
-   counter: counter.counter //modulo.estado
+   counter: counter.counter, //modulo.estado
+   isLoading: counter.isLoading
 });
 
 export default connect(mapStateToProps)(CounterContainer);

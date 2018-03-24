@@ -14,14 +14,21 @@ const DEC_COUNTER_OK = 'app/counter/DEC_COUNTER_OK';
 
 //Initial State
 const InitialState = {
-  counter: 0
+  counter: 0,
+  isLoading: false
 };
 
 //Reducer
 export default function reducer(state = InitialState, action = {}) {
   switch(action.type) {
-    case INC_COUNTER_OK: return {...state, counter: state.counter + 1};
-    case DEC_COUNTER_OK: return {...state, counter: state.counter>0?state.counter - 1:0};
+    case INC_COUNTER_REQ: return {...state, isLoading: true};
+    case INC_COUNTER_OK: return {...state, counter: state.counter + 1, isLoading: false};
+    case INC_COUNTER_ERROR: return {...state, isLoading: false};
+
+    case DEC_COUNTER_REQ: return {...state, isLoading: true};
+    case DEC_COUNTER_OK: return {...state, counter: state.counter>0?state.counter - 1:0, isLoading: false};
+    case DEC_COUNTER_ERROR: return {...state, isLoading: false};
+    
     default: return state;
   }
 }
