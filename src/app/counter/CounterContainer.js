@@ -32,4 +32,8 @@ class CounterContainer extends Component {
   }
 }
 
+CounterContainer.propTypes = {
+  counter: PropTypes.number
+};
+
 export default CounterContainer;
