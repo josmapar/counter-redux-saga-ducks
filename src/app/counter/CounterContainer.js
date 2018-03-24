@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { counterIncrementAction, counterDecrementAction } from './duck';
+import { counterIncrementAction, counterDecrementAction } from './duck/index';
 import CounterComponent from './CounterComponent';
 
 class CounterContainer extends Component {
