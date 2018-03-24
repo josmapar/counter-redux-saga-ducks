@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import CounterComponent from './CounterComponent';
 
@@ -36,4 +38,12 @@ CounterContainer.propTypes = {
   counter: PropTypes.number
 };
 
-export default CounterContainer;
+// const mapStateToProps = ({ counter }) => ({
+//   counter
+// });
+
+const mapStateToProps = ({ counter }) => ({
+   counter: counter.counter //modulo.estado
+});
+
+export default connect(mapStateToProps)(CounterContainer);
