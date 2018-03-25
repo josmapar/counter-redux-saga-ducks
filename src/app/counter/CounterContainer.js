@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { counterIncrementAction, counterDecrementAction } from './duck/index';
 import CounterComponent from './CounterComponent';
+import './styles.css';
 
 class CounterContainer extends Component {
   constructor() {
@@ -22,14 +23,16 @@ class CounterContainer extends Component {
   render() {
     const { counter, isLoading } = this.props;
     return (
-      <div>
-        <h1>Counter Redux</h1>
-        <CounterComponent  
-          counter={counter}
-          isLoading={isLoading}
-          onHandleIncrement={this.handleIncrement}
-          onHandleDecrement={this.handleDecrement}
-        />
+      <div className="panel panel-primary counter-panel">
+        <div className="panel-heading counter-panel-heading">Counter Redux</div>
+        <div className="panel-body">
+          <CounterComponent  
+            counter={counter}
+            isLoading={isLoading}
+            onHandleIncrement={this.handleIncrement}
+            onHandleDecrement={this.handleDecrement}
+          />
+        </div>
       </div>
     );
   }
